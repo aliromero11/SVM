@@ -1,8 +1,304 @@
-﻿@using ProductoModel;
+@model ProductosModel
 @{
     ViewData["Title"] = "Productos";
 }
+<h2>Productos actuales:</h2>
+<br>
+<!--
+    src="~/images/banner1.svg"
+-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="~/images/PORTADA-WEB2.jpg" class="img-thumbnail" >
+    <div class="carousel-caption d-none d-md-block" style="color:#000000">
+          <h5>Modelo Hellen</h5>
+          <p>Tallas: S,M,L  Colores: Blanco</p>
+        </div>
+    </div>
+        
+    <div class="carousel-item">
+      <img src="~/images/PORTADA-WEB.jpg" class="img-thumbnail" >
+      <div class="carousel-caption d-none d-md-block" style="color:#000000">
+          <h5>Modelo UniChic</h5>
+          <p>Tallas: S,M,L  Colores: Gris</p>
+        </div>
+    </div>
 
-<h2>@ViewData["Title"]</h2>
+    <div class="carousel-item">
+      <img src="~/images/PORTADA-WEB3.jpg" class="img-thumbnail" >
+      <div class="carousel-caption d-none d-md-block" style="color:#000000">
+          <h5>Modelo Casual</h5>
+          <p>Tallas: S,M,L  Colores: Gris</p>
+        </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+<br>
+<!-- product look for buscar (rendersection)-->
+<form asp-controller="Productos" asp-action="Buscar">
+	<table width = "100%">
+        <tr>
+            <td>
+            <th>
+            <label for="Coleccion">Colección:</label>
+            </th>
+            <th>
+            <select name="Coleccion" id="Coleccion" class="form-control">
+        	<option value="CalH">Colección Hellen</option>
+        	<option value="CalUC">Colección UniChic</option>
+            <option value="CalC">Colección Casual</option>
+            </select>
+            </th>
+            </td>
 
+            <td>
+            <th>
+                <label for="Talla">Talla:</label>
+            </th>
+            <th>
+                <select name="Talla" id="Talla" class="form-control">
+        	    <option value="s">Small (S)</option>
+                <option value="m">Medium (M)</option>
+                <option value="l">LargAe (L)</option>
+        	    <option value="xl">Extra Large (XL)</option>
+                </select>
+            </th>
+            </td>
 
+            <td>
+            <th>
+               <label for="Modelo">Modelo:</label>
+            </th>
+            <th>
+                <select name="Modelo" id="Modelo" class="form-control">
+        	    <option value="maCe">Manga Cero</option>
+                <option value="maCo">Manga Corta</option>
+                <option value="ma3">Manga 3/4</option>
+        	    <option value="maL">Manga Larga</option>
+            </select>
+            </th>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            <th>
+               <label for="Material">Material:</label>
+            </th>
+            <th>
+                <select name="Material" id="Material" class="form-control">
+        	<option value="mat1">Algodón</option>
+                <option value="mat2">Sintético</option>
+                <option value="mat3">Denim</option>
+        	<option value="mat4">Seda</option>
+        </select>
+            </th>
+            </td>
+
+            <td>
+            <th>
+               <label for="Precio">Precio:</label>
+            </th>
+            <th>
+                <select name="Precio" id="Precio" class="form-control">
+        	<option value="bajo">Menos de 50 so</option>
+                <option value="medio">Más de 50 so</option>
+                <option value="alto">Más de 80 so</option>
+        </select>
+            </th>
+            </td>
+
+            <td>
+            <th>
+               <label for="Color">Color:</label>
+            </th>
+            <th>
+                <select name="Color" id="Color" class="form-control">
+        	<option value="coAz">Azul</option>
+                <option value="coAm">Amarillo</option>
+                <option value="coRo">Rojo</option>
+                <option value="coBl">Blanco</option>
+                <option value="coNe">Negro</option>
+                <option value="coGr">Gris</option>
+                <option value="coVe">Verde</option>
+        </select>
+            </th>
+            </td>
+
+        </tr>
+        
+        <tr>
+            <td>
+            <th>
+             <!-- filtrar 
+        <input type="button" class="btn btn-primary" value="Buscar"/> -->
+        @using (Html.BeginForm("Filtrar","Productos"))
+        {
+        <input type="submit" value="Buscar" class="btn btn-outline-info" />
+        } 
+        </th>
+            </td>
+        </tr>
+    </table>
+      
+</form>
+<!-- product look for buscar (rendersection)-->
+<br>
+<div class="row">
+		<!-- product -->
+		<div class="col-md-4 col-xs-6">
+		<div class="product">
+
+				<div class="product-img">
+					<img src="~/images/CalH_bla.jpg" alt="" class="img-thumbnail">
+				</div>
+
+				<div class="product-body text-center">
+					<p class="product-category" value="CalH">Colección Hellen</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="CalH_bla.cshtml" class="text-dark">Polo Cruzado</a></h3>
+					<h4 class="product-price">S/.50.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center" >
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+
+		</div>
+		</div>
+		<!-- /product -->
+		<div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalC_az.jpg" alt="" class="img-thumbnail">
+                </div>
+
+				<div class="product-body text-center">
+				    <p class="product-category">Colección Casual</p>
+                    <!-- Hacer pag de esto -->
+				    <h3 class="product-name"><a href="#" class="text-dark">Polo Tejido de lado</a></h3>
+				    <h4 class="product-price">S/.70.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+
+		<div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalUC_gr.jpg" alt="" class="img-thumbnail">
+                </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección UniChic</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo con Flores</a></h3>
+					<h4 class="product-price">S/.50.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+</div>
+<br>
+<div class="row">
+        <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalH_ver.jpg" alt="" class="img-thumbnail">
+                </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección Hellen</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo Básico</a></h3>
+					<h4 class="product-price">S/.30.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+
+        <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalUC_neg.jpg" alt="" class="img-thumbnail">
+                </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección UniChic</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo con estampado "Favorite"</a></h3>
+					<h4 class="product-price">S/.40.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+
+        <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalC_neg.jpg" alt="" class="img-thumbnail">
+                </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección Casual</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo con estrellas</a></h3>
+					<h4 class="product-price">S/.45.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+</div>
+<br>
+<div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg pagination justify-content-center" >
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Anterior</span>
+      </a>
+    </li>
+ <!-- activar cuando haya más paginas xd -->
+    <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+    <li class="page-item ">
+
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
