@@ -1,0 +1,4 @@
+1 verificar la version del visual la ultima version
+2 generar un dotnet restore para descargar los paquetes
+3 dar un migracion y un update de la base de datos
+ADVERTENCIA si no dan migracion y actualizar se genera  error. 
