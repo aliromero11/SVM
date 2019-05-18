@@ -1,0 +1,108 @@
+@using Microsoft.AspNetCore.Identity
+@using SGCP.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                              <div class="navbar-nav ml-auto">
+                                   <a class="nav-item nav-link" asp-controller="Manage" asp-action="Index" title="Manage">Bienvenido @UserManager.GetUserName(User)</a>
+                                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button> 
+                              </div>
+        </div>
+        
+    </form>
+}
+else
+{
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                              <div class="navbar-nav ml-auto">
+                                      <a class="nav-item nav-link active"asp-area="" asp-controller="Account" asp-action="Register">Registrar <span class="sr-only">(current)</span></a>
+                                      <a class="nav-item nav-link" asp-area="" asp-controller="Account" asp-action="Login">Iniciar Sesion</a>
+                              </div>
+     </div>
+     
+}<!--
+       <header>
+        <div class="container-fluid bg-dark fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark container">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/imagenes/logo0.png" width="40" height="30" class="d-inline-block align-top" alt="">
+                          ALJHON</a>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                              <div class="navbar-nav ml-auto">
+                                      <a class="nav-item nav-link active" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                                      <a class="nav-item nav-link" href="~/Home/Somos">Somos</a>
+                                      <a class="nav-item nav-link" href="~/Home/Ubicacion">Mapa</a> 
+                                      <a class="nav-item nav-link" href="~/Producto/MadaMujeres">Producto</a>
+                                       <a class="nav-item nav-link" href="~/Home/CarritoPedido">Carrito</a>
+                                <li class="nav-item dropdown mr-4 " >
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Cuenta
+                                        </a>
+            @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      
+                                        <a class="dropdown-item" asp-area=""  asp-controller="Manage" asp-action="Index" title="Manage">Mi Datos Personales</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                                        <div class="dropdown-divider"></div>
+                                       <button type="submit" class="btn btn-link navbar-btn dropdown-item">Cerrar Sesión</button>
+                                        </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Login">Iniciar Sesion</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register">Crear Cuenta</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                                        </div>
+                    }                                 
+                                </li>
+            
+                                
+                                 <div class="dropdown-divider"></div>
+                                <a class="nav-item nav-link btn btn-danger" href="~/Home/Contacto" >Contacto</a>
+                              </div>
+                                 
+                                 
+                              </div>
+                             
+                      </div>
+                      
+                    </div>
+                    <header>
+        
+                
+            
+                      @if (SignInManager.IsSignedIn(User))
+                        {
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item bg-dark" asp-area=""  asp-controller="Manage" asp-action="Index" title="Manage">Bienvenido @UserManager.GetUserName(User)</a>
+                            </div>
+                        }else{ 
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item bg-white" asp-area=""  asp-controller="Manage" asp-action="Index" title="Manage">|</a>
+                            </div>
+                        }
+               
+            </nav>
+        </div>
+ 
+    </header>
+    -->
