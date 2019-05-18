@@ -1,0 +1,189 @@
+
+a{
+	text-decoration: none;
+	color: #eee;
+}
+ 
+#nav{
+	background: rgba(61, 60, 60, 0.808);
+	top: auto;
+	right: auto;
+	cursor: pointer; 
+	text-align: center;
+	padding-top: 0.2rem;
+	display: flex;
+    justify-content: space-between;
+    text-anchor: initial;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	z-index: 4;
+}
+
+#nav1{
+	background: rgb(20, 20, 20);
+	top: auto;
+	right: auto;
+	cursor: pointer; 
+	text-align: center;
+	padding-top: 0.2rem;
+	display: flex;
+    justify-content: space-between;
+    text-anchor: initial;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	z-index: 4;
+} 
+#nav2{ 
+	padding-top: 0.5rem;
+	display: flex;
+    justify-content: space-between;
+    text-anchor: start;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+} 
+#nav3{
+	background: rgba(53, 52, 52, 0.808);
+	top: auto;
+	right: auto;
+	cursor: pointer; 
+	text-align: center;
+	padding-top: 0.2rem;
+	display: flex;
+    justify-content: space-between;
+    text-anchor: initial;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	z-index: 4;
+}  
+button[type="submit1"]:hover{
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#777777+0,0d0d0d+46,010101+50,0a0a0a+53,4e4e4e+76,353535+87,1b1b1b+100 */
+background: #979696;  
+border: none;
+}
+#subMenu a{
+	background: transparent; 
+}
+#subMenu button{
+	border: none;
+	background: transparent; 
+	text-transform: uppercase;
+}
+/*tamaño de la barra menu margin*/
+#brand{
+	font-size: 1rem;  
+    margin: 0.5rem 0;
+    background:transparent;
+	transform: translateX(-100rem);
+	animation: slideIn .5s forwards;
+}
+#tam{
+text-align: center;
+font-size: 1rem;  
+}
+#brand span{
+	color: crimson;
+}
+
+#tNav{
+	display: flex;
+}
+
+#tNav{
+	list-style: none;
+	transform: translateX(100rem);
+	animation: slideIn .5s forwards;
+	
+}
+ 
+#tNav a:hover{
+	background: rgba(100, 96, 96, 0.95);  
+	border: none;
+}
+
+#tNav:nth-child(1){
+	animation-delay: 0s;
+}
+
+#tNav:nth-child(2){
+	animation-delay: .3s;
+}
+
+#tNav:nth-child(3){
+	animation-delay: .5s;
+}
+
+#tNav:nth-child(4){
+	animation-delay: .9s;
+} 
+#tNav:nth-child(5){
+	animation-delay: 1.2s;
+}
+/*Cuenta*/
+#tNav:nth-child(6){
+	animation-delay: 1.5s;
+}
+#tNavli:nth-child(7){
+	animation-delay: 1.8s;
+}
+#tNav:nth-child(8){
+	animation-delay: 3.5s;
+} 
+#tNav:nth-child(9){
+	animation-delay: 4s;
+} 
+#tNav:nth-child(10){
+	animation-delay: 4.5s;
+} 
+ 
+
+#tNav{
+	padding: 0.4rem 0;
+	margin: 0 0.5vh;
+	position: relative;
+	letter-spacing: 3px;
+}
+
+#tNav:last-child{
+	margin-right: 0;
+}
+
+#tNav::before,
+#tNav::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: crimson;
+	left: 0;
+	transform: scaleX(0);
+	transition: all .8s;
+}
+
+#tNav::before{
+	top: 0;
+	transform-origin: left;
+}
+
+#tNav::after{
+	bottom: 0;
+	transform-origin: right;
+}
+ 
+#tNav:hover::before,
+#tNav:hover::after{
+	transform: scaleX(1);
+}
+
+@keyframes slideIn {
+	from{
+
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+ 

@@ -1,0 +1,25 @@
+﻿@{ 
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Maneja tu cuenta</h2>
+    
+    <div>
+        <h4>Cambiar la configuración de su cuenta</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                @await Html.PartialAsync("_ManageNav")
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    
+</div>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+        

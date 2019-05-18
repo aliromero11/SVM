@@ -12,26 +12,25 @@ namespace SVM.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+          @ViewData["Title"]="ALJHON, pedido online";
+          return View();
         }
         public IActionResult Ubicacion()
         {
-            return View();
+          @ViewData["Title"]="Ubicanos";
+          return View();
         }
-
         public IActionResult Somos()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+          @ViewData["Title"]="Somos";
+          return View();
         }
-
         public IActionResult Contacto()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+          @ViewData["Title"]="Contactanos";
+          return View();
         }
+
 
         public IActionResult Ropa()
         {

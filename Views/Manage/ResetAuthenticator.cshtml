@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Reset authenticator key";
+    ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>Si restablece la clave de autenticación, la aplicación de autenticación no funcionará hasta que la configure.</strong>
+    </p>
+    <p>
+        Este proceso deshabilita 2FA hasta que verifique su aplicación de autenticación y también restablecerá sus códigos de recuperación 2FA.
+        Si no completa la configuración de la aplicación de autenticación, puede perder el acceso a su cuenta.
+    </p>
+</div>
+<div>
+    <form asp-action="ResetAuthenticator" method="post" class="form-group">
+        <button class="btn btn-danger" type="submit">Restablecer clave autenticador</button>
+    </form>
+</div>

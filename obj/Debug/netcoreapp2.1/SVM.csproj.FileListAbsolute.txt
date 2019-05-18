@@ -1,0 +1,6 @@
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.csprojAssemblyReference.cache
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.csproj.CoreCompileInputs.cache
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.RazorAssemblyInfo.cache
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.RazorAssemblyInfo.cs
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.AssemblyInfoInputs.cache
+C:\Users\jheds\Desktop\SVM\SVM\obj\Debug\netcoreapp2.1\SVM.AssemblyInfo.cs
