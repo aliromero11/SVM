@@ -52,6 +52,31 @@
                               <a class="nav-link text-white"  href="~/Productos/Carro">Carrito</a>
                           </li>
                          
+                     <li class="nav-item dropdown" id="tNav">
+                          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cuenta
+                          </a>
+                          @if (SignInManager.IsSignedIn(User))
+                        { 
+                          <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                            <div   class="dropdown-menu bg-danger" aria-labelledby="navbarDropdownMenuLink">
+                                  <a class="dropdown-item text-white"   asp-area=""  asp-controller="Manage" asp-action="Index" title="Manage">Mi Datos</a>
+                                  <a class="dropdown-item text-white"   asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                                  <div class="dropdown-divider"></div>
+                                  <button type="submit1" class="btn btn-link navbar-btn dropdown-item text-white" >CERRAR SESION</button>
+                             </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <div   class="dropdown-menu bg-danger" aria-labelledby="navbarDropdownMenuLink" >
+                                  <a class="dropdown-item text-white" asp-area="" asp-controller="Account" asp-action="Login">Iniciar Sesion</a>
+                                  <a class="dropdown-item text-white"asp-area="" asp-controller="Account" asp-action="Register">Crear Cuenta</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item text-white" asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                            </div>
+                        }  
+                        </li>
                       </ul>
 
                       <div class="dropdown-divider"></div>
@@ -62,6 +87,19 @@
                       </div>  
                       
               </nav> 
+              <nav id="nav3">
+                    @if (SignInManager.IsSignedIn(User))
+                            {
+              <div class="subheader-notifications col-md-11"  style="text-align: right" >
+                <span class="user-welcome bg-write  text-white" > Bienvenido @UserManager.GetUserName(User)</span>
+              </div> 
+                            }else{ 
+              <div class="subheader-notifications col-md-11"  style="text-align: right" >
+                <span class="user-welcome  text-white-50" ></span>
+              </div> 
+                            }
+            </nav> 
+
                
         </div> 
     </header>
