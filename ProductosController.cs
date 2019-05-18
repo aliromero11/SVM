@@ -4,13 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SVM.Models;
+using ARS.Models; // using SVM.Models;
 
-namespace SVM.Controllers
+namespace ARS.Controllers
 {
     public class ProductosController : Controller
     {
-        public IActionResult Listar()
+         public IActionResult Listar()
         {
             return View();
         }
@@ -32,5 +32,13 @@ namespace SVM.Controllers
         {
             return View();
         }
-
-}}
+        public IActionResult Carro()
+        {
+            return View();
+        }
+        public IActionResult Cancelar()
+        {
+            return View();
+        }
+    }
+}
