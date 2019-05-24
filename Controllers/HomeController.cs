@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SVM.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace SVM.Controllers
 {
@@ -12,42 +14,29 @@ namespace SVM.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+          @ViewData["Title"]="ALJHON, pedido online";
+          return View();
         }
         public IActionResult Ubicacion()
         {
-            return View();
+          @ViewData["Title"]="Ubicanos";
+          return View();
         }
-
         public IActionResult Somos()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+          @ViewData["Title"]="Somos";
+          return View();
         }
-
         public IActionResult Contacto()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+          @ViewData["Title"]="Contactanos";
+          return View();
         }
-
-        public IActionResult Ropa()
+        [Authorize]
+         public IActionResult CarritoPedido()
         {
-            return View();
-        }
-        public IActionResult Zapatos()
-        {
-            return View();
-        }
-        public IActionResult CarritoCompra()
-        {
-            return View();
-        }
-        public IActionResult Nuevo()
-        {
-            return View();
+          @ViewData["Title"]="Carro de Pedido";
+          return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

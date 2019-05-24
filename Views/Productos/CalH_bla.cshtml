@@ -1,5 +1,6 @@
 @model ProductosModel
 
+
 <!-- EDITANDO BODY CalH_bla terminar descripcion esta pag , y carrito!!!!!!!!!!!!  carusel img width="50%"-->
         <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -8,8 +9,7 @@
         <li class="breadcrumb-item active" aria-current="page">Polo Cruzado</li>
         </ol>
         </nav>
-        
-        <h1>Coleccion hellen blanco</h1>
+
 <div class="row">
 <div class="col-lg-6 col-md-6">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -31,19 +31,74 @@
   
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
   </a>
 </div>
 </div>
 
 <div class="col-lg-6 col-md-6">
+
     <div class="product-details"> 
+      <span>Coleccion Hellen</span>
+      <h2>Polo Cruzado</h2>
+      <br>
+      <p>
+        <strong>Modelo:</strong> 
+        <br>
+        Manga larga
+      </p>
+      <p>
+        <strong>Material:</strong>
+        <br>Algodón
+        </p>
+      <p>
+        <strong>Color:</strong>
+        <br>Blanco
+      </p> 
+      <p>
+      <label for="Talla"><strong>Talla:</strong></label>
+      <select name="Talla" id="Talla" class="form-control col-lg-5 col-md-5">
+      <option value="s">Small (S)</option>
+      <option value="m">Medium (M)</option>
+      <option value="l">LargAe (L)</option>
+      <option value="xl">Extra Large (XL)</option>
+      </select>
+      </p>
+      <p>
+      <strong>Cantidad:</strong>
+      <br>
+      <a asp-controller="Productos" asp-action="AgregarCarrito">
+      <button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button>
+      </a>
+        <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-12 row">
+        
+      </main>
+
+      </p>
+      <p>
+      <h4 class="product-price">S/.50.00 </div></h4>
+      </p>
+
+      <p>
+            <!--EDITARRR Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            </aside>
+      </p>
 
     </div>  
+
+    
+        
+    </div>
 </div>
 </div>
 

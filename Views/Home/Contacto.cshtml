@@ -1,0 +1,92 @@
+<section>
+    <div class="container">
+        
+        <h1>@ViewData["Title"]</h1> 
+                    <div class="row p-1 " style="text-size-adjust: 2px">
+                        <div class="col-lg-12 col-md-12"> 
+                            <div class="texto-acerca-map"> 
+                                <p>Por email </p>
+                                <p> Rellena el formulario y en breve nos pondremos en contacto contigo via email.</p>
+                            </div>
+                        </div>
+                     </div> 
+                    <div class="row p-1">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="texto-acerca-map"> 
+                                        <p>Por teléfono</p>
+                                        <p>910 134 698</p> 
+                                </div>
+                            </div>
+                   </div> 
+                    
+                <form action="" method="">
+        
+                    <section class="p-5">
+                        <div class="row">
+                            <div class="col-md-6">     
+                                <div class="form-group">
+                                    <label for="nombres">Nombres:</label>
+                                    <input type="text" required name="nombres" id="nombres" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="apellidos">Apellidos:</label>
+                                    <input type="text" required name="apellidos" id="apellidos" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="correo">Correo:</label>
+                                    <input type="email" required name="correo" id="correo" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="dire">Dirección:</label>
+                                    <input type="text" name="dire" id="dire" class="form-control">
+                                    <small class="form-text text-muted">Escriba su dirección completa incluyendo el distrito.</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="motivo">Motivo:</label>
+                                    <select name="motivo" id="motivo" class="form-control" multiple>
+                                        <option value="C">Consulta</option>
+                                        <option value="R">Reclamo</option>
+                                        <option value="Q">Queja</option>
+                                        <option value="S">Sugerencia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="mensaje">Mensaje:</label>
+                                    <textarea name="mensaje" id="" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar Consulta</button>
+                                <a href="~/Home/Index" class="btn btn-secondary">Cancelar Consulta</a>
+                                
+                            </div>
+                        </div>
+                    </section>
+        </form>
+    </div>
+</section>

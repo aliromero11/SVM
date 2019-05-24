@@ -3,3 +3,61 @@
     ViewData["Title"] = "Carrito de Compra";
 }
 <h2>Carrito de Compra:</h3>
+<!-- 
+<div class="container">
+  <div class="row">
+    Elementos generados a partir del JSON
+  <main id="items" class="col-sm-8 row"></main>
+    Carrito 
+  <aside class="col-sm-4">
+  <h2>Carrito</h2>
+    Elementos del carrito 
+  <ul id="carrito" class="list-group"></ul>
+  <hr>
+    Precio total 
+  <p class="text-right">Total: <span id="total"></span>&euro;</p>
+  </aside></div>
+</div>-->
+<div>
+<table width = "100%" class="border border-primary rounded">
+<tr class="text-uppercase">
+<!--Foto-->
+    <th scope="col">Producto (Foto)</th>
+
+    <th>ID</th>
+
+    <th>Nombre</th>
+    <th>Descripción</th>
+    
+    <th>Precio</th>
+    <th>Cantidad</th>
+
+  </tr>
+
+  <tr>
+
+    <td>Foto</td>
+
+    <td>1</td>
+
+    <td>Polo cruzado</td>
+
+    <td>Manga larga, algodón</td>
+    <td>50</td>
+    <td>2</td>
+
+  </tr>
+</table>
+</div>
+<br>
+<div>
+  @using (Html.BeginForm("Compra","Productos"))
+  { <input type="submit" value="Pagar" class="btn btn-outline-success" />} 
+<br>
+  @using (Html.BeginForm("Listar","Productos"))
+  { <input type="submit" value="Seguir Comprando" class="btn btn-outline-primary" />} 
+<br>
+<!--Redirigir al inicio - listar-->
+ @using (Html.BeginForm("Cancelar","Productos"))
+  { <input type="submit" value="Cancelar" class="btn btn-outline-danger btn-sm" />} 
+</div>

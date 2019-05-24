@@ -1,18 +1,21 @@
 @model ProductosModel
-@{
+<!--@{
     ViewData["Title"] = "Productos";
 }
-<h2>Productos actuales:</h2>
-<br>
-<!--
+
+
     src="~/images/banner1.svg"
 -->
+<h2>Productos actuales:</h2>
+<br>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
+
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="~/images/PORTADA-WEB2.jpg" class="img-thumbnail" >
@@ -159,87 +162,24 @@
 <!-- product look for buscar (rendersection)-->
 <br>
 <div class="row">
-		<!-- product -->
-		<div class="col-md-4 col-xs-6">
-		<div class="product">
-
-				<div class="product-img">
-					<img src="~/images/CalH_bla.jpg" alt="" class="img-thumbnail">
-				</div>
-
-				<div class="product-body text-center">
-					<p class="product-category" value="CalH">Colección Hellen</p>
-                    <!-- Hacer pag de esto -->
-					<h3 class="product-name"><a href="CalH_bla.cshtml" class="text-dark">Polo Cruzado</a></h3>
-					<h4 class="product-price">S/.50.00 </del></h4>
-				</div>
-
-				<div class="add-to-cart text-center" >
-			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
-				</div>
-
-		</div>
-		</div>
-		<!-- /product -->
-		<div class="col-md-4 col-xs-6">
-		<div class="product">
-				<div class="product-img">
-					<img src="~/images/CalC_az.jpg" alt="" class="img-thumbnail">
-                </div>
-
-				<div class="product-body text-center">
-				    <p class="product-category">Colección Casual</p>
-                    <!-- Hacer pag de esto -->
-				    <h3 class="product-name"><a href="#" class="text-dark">Polo Tejido de lado</a></h3>
-				    <h4 class="product-price">S/.70.00 </del></h4>
-				</div>
-
-				<div class="add-to-cart text-center">
-			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
-				</div>
-		</div>
-		</div>
-
-		<div class="col-md-4 col-xs-6">
-		<div class="product">
-				<div class="product-img">
-					<img src="~/images/CalUC_gr.jpg" alt="" class="img-thumbnail">
-                </div>
-                
-                <div class="product-body text-center">
-					<p class="product-category">Colección UniChic</p>
-                    <!-- Hacer pag de esto -->
-					<h3 class="product-name"><a href="#" class="text-dark">Polo con Flores</a></h3>
-					<h4 class="product-price">S/.50.00 </del></h4>
-				</div>
-
-				<div class="add-to-cart text-center">
-			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
-				</div>
-		</div>
-		</div>
-</div>
-<br>
-<div class="row">
-        <div class="col-md-4 col-xs-6">
+<!--PRODUCTO 1-->
+    <div class="col-md-4 col-xs-6">
 		<div class="product">
 				<div class="product-img">
 					<img src="~/images/CalH_ver.jpg" alt="" class="img-thumbnail">
-                </div>
-                
-                <div class="product-body text-center">
+        </div>       
+        <div class="product-body text-center">
 					<p class="product-category">Colección Hellen</p>
                     <!-- Hacer pag de esto -->
 					<h3 class="product-name"><a href="#" class="text-dark">Polo Básico</a></h3>
 					<h4 class="product-price">S/.30.00 </del></h4>
 				</div>
-
 				<div class="add-to-cart text-center">
 			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
 				</div>
 		</div>
 		</div>
-
+<!--PRODUCTO 2-->
         <div class="col-md-4 col-xs-6">
 		<div class="product">
 				<div class="product-img">
@@ -258,7 +198,7 @@
 				</div>
 		</div>
 		</div>
-
+<!--PRODUCTO 3-->
         <div class="col-md-4 col-xs-6">
 		<div class="product">
 				<div class="product-img">
@@ -279,6 +219,65 @@
 		</div>
 </div>
 <br>
+<div class="row">
+<!--PRODUCTO 4-->
+    <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalH_bla.jpg" alt="" class="img-thumbnail">
+        </div>       
+        <div class="product-body text-center">
+					<p class="product-category" value="CalH">Colección Hellen</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo Cruzado</a></h3>
+					<h4 class="product-price">S/.50.00 </del></h4>
+				</div>
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+<!--PRODUCTO 5-->
+        <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalC_az.jpg" alt="" class="img-thumbnail">
+        </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección Casual</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo Tejido de lado</a></h3>
+					<h4 class="product-price">S/.70.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+<!--PRODUCTO 6-->
+        <div class="col-md-4 col-xs-6">
+		<div class="product">
+				<div class="product-img">
+					<img src="~/images/CalUC_gr.jpg" alt="" class="img-thumbnail">
+                </div>
+                
+                <div class="product-body text-center">
+					<p class="product-category">Colección UniChic</p>
+                    <!-- Hacer pag de esto -->
+					<h3 class="product-name"><a href="#" class="text-dark">Polo con Flores</a></h3>
+					<h4 class="product-price">S/.50.00 </del></h4>
+				</div>
+
+				<div class="add-to-cart text-center">
+			        <a asp-controller="Productos" asp-action="AgregarCarrito"><button class="add-to-cart-btn btn btn-outline-primary">Agregar a Carrito</button></a>
+				</div>
+		</div>
+		</div>
+</div>
+<br>
+
 <div>
 <nav aria-label="Page navigation example">
   <ul class="pagination pagination-lg pagination justify-content-center" >

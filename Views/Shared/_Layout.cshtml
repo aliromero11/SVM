@@ -3,53 +3,156 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SVM</title>
-
+    <title>@ViewData["Title"]</title>
+<!--CSS-->
+    <link rel="stylesheet" href="~/css/estilos.css" /> 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
+     <link rel="stylesheet" href="~/css/styleLayout.css" />
+   
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+@using Microsoft.AspNetCore.Identity
+@using SVM.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<header > 
+        <div class="container-fluid bg-transparent fixed-top"   >
+            <nav id="nav1" class="navbar navbar-expand-lg navbar-light ">
+                <h1 id="brand">
+                  <a class="navbar-brand text-white" href="~/home/index "> 
+                     <img src="~/imagenes/logo0.png" width="40" height="30" class="d-inline-block align-top" alt="">
+                      <span>A</span>l<span>J</span>hon
+                   </a>
+                </h1>
+                <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon bg-white"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SVM</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <!-- copy this -->
-                    <li><a asp-area="" asp-controller="Productos" asp-action="Listar">Polos</a></li>
-                    <li><a asp-area="" asp-controller="Productos" asp-action="Buscar">Busca tu polo</a></li>
-                    <li><a asp-area="" asp-controller="Productos" asp-action="Carro">Carrito de Compra</a></li>
-                </ul>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item" id="tNav">
+                            <a class="nav-link active text-white"  href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item" id="tNav">
+                            <a class="nav-link text-white"  href="~/Home/Somos">Somos</a>
+                        </li>
+                        <li class="nav-item" id="tNav">
+                            <a class="nav-link text-white"   href="~/Home/Ubicacion">Mapa</a> 
+                        </li>
+                        <li class="nav-item" id="tNav">
+                            <a class="nav-link text-white"   href="~/Producto/MadaMujeres">Producto</a>
+                        </li>
+                          <li class="nav-item" id="tNav">
+                              <a class="nav-link text-white"  href="~/Home/CarritoPedido">Carrito</a>
+                          </li>
+                        <li class="nav-item dropdown" id="tNav">
+                          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cuenta
+                          </a>
+                          @if (SignInManager.IsSignedIn(User))
+                        { 
+                          <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                            <div   class="dropdown-menu bg-danger" aria-labelledby="navbarDropdownMenuLink">
+                                  <a class="dropdown-item text-white"   asp-area=""  asp-controller="Manage" asp-action="Index" title="Manage">Mi Datos</a>
+                                  <a class="dropdown-item text-white"   asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                                  <div class="dropdown-divider"></div>
+                                  <button type="submit1" class="btn btn-link navbar-btn dropdown-item text-white" >CERRAR SESION</button>
+                             </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <div   class="dropdown-menu bg-danger" aria-labelledby="navbarDropdownMenuLink" >
+                                  <a class="dropdown-item text-white" asp-area="" asp-controller="Account" asp-action="Login">Iniciar Sesion</a>
+                                  <a class="dropdown-item text-white"asp-area="" asp-controller="Account" asp-action="Register">Crear Cuenta</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item text-white" asp-area="" asp-controller="Home" asp-action="CarritoPedido">Mis Pedidos</a>
+                            </div>
+                        }  
+                        </li>
+                      </ul>
+
+                      <div class="dropdown-divider"></div>
+                        <h2 id="tam" class=" ml-4">
+                          <a class="nav-item nav-link btn-danger" id="tNav"  href="~/Home/Contacto" >Contacto</a>
+                        </h2>
+                        <div class="dropdown-divider "></div>
+                      </div>  
+                      
+              </nav> 
+              <nav id="nav3">
+                    @if (SignInManager.IsSignedIn(User))
+                            {
+              <div class="subheader-notifications col-md-11"  style="text-align: right" >
+                <span class="user-welcome bg-write  text-white" > Bienvenido @UserManager.GetUserName(User)</span>
+              </div> 
+                            }else{ 
+              <div class="subheader-notifications col-md-11"  style="text-align: right" >
+                <span class="user-welcome  text-white-50" ></span>
+              </div> 
+                            }
+            </nav> 
+        </div> 
+    </header>
+   <section id="position">
+        <div class="">
+            <partial name="_CookieConsentPartial" />
+            <main role="main" class="pb-3"> 
+                @RenderBody()
+            </main>
+        </div>
+    </section>
+
+    <footer id="footer-main" class="border-top footer text-muted">
+        <div class="content-block  container">
+           <div class="row ">  
+                        <div class=" col-sm-4">
+                            <h6>Info</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam expedita fugit saepe, eum ad, quam! Eum magnam suscipit nulla ullam aliquam consectetur provident, nihil consequuntur porro labore asperiores corrupti esse?</p>
+                        </div>
+                          <div class="col-sm-4 ">
+                              <h6>Redes Sociales</h6>
+                              <ul class="list-unstyled"> 
+                                <div class="p-3">
+                                  <img src="~/icono/icon-face.png" alt="..." class="card-img-top" style="width: 35px;">
+                                  <a href="">facebook</a>
+                                  </div>
+                                  <div class="p-3">
+                                  <img src="~/icono/icon-twitter.png" alt="..." class="card-img-top" style="width: 40px;">
+                                  <a href="">twitter</a>
+                                  </div> 
+                              </ul>
+                          </div>
+                             <div class="col-md-4 footer-bottom-cate cate-bottom animated wow fadeInRight" data-wow-delay=".5s">
+                                <h6>Nuestra dirección </h6>
+                                <ul>
+                                  <li><i><img src="~/icono/ubicacion.png" alt="..." class="card-img-top" style="width: 30px;">   </i>  Address : 12th Avenue, 5th block, <span>Sydney.</span></li>
+                                <li><i><img src="~/icono/email.png" alt="..." class="card-img-top " style="width: 35px; ">   </i>  Email : <a href="edwar.salas.987@gmail.com">edwar.salas.987@gmail.com</a></li>
+                                  <li><i ><img src="~/icono/llamada.png" alt="..." class="card-img-top" style="width: 30px;">   </i>  Phone : +1234 567 567</li>
+                                </ul>
+                              </div>
+                  <div class="col-lg-12 text-decoration-none" style="text-align: center; top: 2rem">
+                      <ul class="list-unstyled">
+                        <li><a href="~/Home/Index">&copy 2019 Tallar de Confección AlJhon</a></li>
+                      </ul> 
+                 </div>
+              
+                
             </div>
         </div>
-    </nav>
+        </div>
+    </footer>
 
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - SVM</p>
-        </footer>
     </div>
 
     <environment include="Development">
@@ -58,21 +161,21 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
         </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
                 crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
+ <script src="~/js/layout.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
