@@ -1,0 +1,18 @@
+﻿@using IdentityDemo.Views.Manage
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+ 
+ 
+    <ul class="nav nav-pills nav-stacked " style="display: inline-block;">
+        <li class="@ManageNavPages.IndexNavClass(ViewContext) navbar-nav ml-auto"><a class="dropdown-item" asp-action="Index">Perfil</a></li>
+        <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext) navbar-nav ml-auto"><a class="dropdown-item" asp-action="ChangePassword">Contraseña</a></li>
+        @if (hasExternalLogins)
+        {
+        <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext) navbar-nav ml-auto"><a class="dropdown-item" asp-action="ExternalLogins">Inicios de sesión externos</a></li>
+        }
+        <li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext) navbar-nav ml-auto"><a class="dropdown-item" asp-action="TwoFactorAuthentication">Autenticación de dos factores </a></li>
+    </ul>
+ 
+

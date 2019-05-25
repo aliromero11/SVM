@@ -1,0 +1,102 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel 
+@inject SignInManager<ApplicationUser> SignInManager 
+@{
+    Layout=null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Iniciar Sesión</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<!-- css files -->
+<link href="~/css/style.css" rel="stylesheet" type="text/css" media="all">
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<!--//online-fonts -->
+</head>
+
+<body>
+<!--header-->
+<div class="agileheader">
+	<h1><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+        ALJHON</a>
+    </h1>
+</div>
+<!--//header-->
+
+<!--main-->
+<div class="main-w3l">
+    <div class="w3layouts-main">
+        <h2>Iniciar Sesión</h2>
+        <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+            
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    
+                    <input asp-for="UserName" placeholder="Usuario" class="form-control" type="user"/>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                
+                    <input asp-for="Password" placeholder="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <h6><a asp-action="ForgotPassword">¿Olvidaste tu contraseña?</a></h6>
+                
+                <span>@Html.CheckBoxFor(m => m.RememberMe) Remember Me?</span>  
+                <div class="clear"></div>
+                    <input type="submit" id="submitL" value="Login" name="Login"/>  
+            </form>
+  <p> <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">¿Registrar como usuario nuevo?</a></p>
+            <hr/>
+            <p> Iniciar Sesión usando </p> 
+                    @{
+                        var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+                        if (loginProviders.Count == 0)
+                        {
+                            <div>
+                                <p>
+                                    No hay servicios de autenticación externos configurados. </p>
+                            </div>
+                        }
+                        else
+                        {
+                            
+                            <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                                <div>
+                                  
+                                        @foreach (var provider in loginProviders)
+                                        {
+                                            <input type="submit" id="submitG" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" value="@provider.Name" name="@provider.Name">
+                                        }
+                                     
+                                </div>
+                            </form>
+                        }
+                    }
+             
+    </div>
+</div>
+    
+<!--//main-->
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+<!--footer-->
+<div class="footer-w3l">
+	<p>&copy; 2019  Formulario de inicio de sesión inteligente. Todos los derechos reservados | Diseño de <a asp-controller="Home" asp-action="Index">ALJhon</a></p>
+</div>
+<!--//footer-->
+
+</body>
+</html>
